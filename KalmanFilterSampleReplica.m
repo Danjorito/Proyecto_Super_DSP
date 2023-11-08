@@ -23,8 +23,11 @@ E_mea = 0.02;
 EST = zeros(1, 1000);
 EST(1) = noisy_signal(1);
 KG = 0.0001;
-for n = 1:size(noisy_signal, 2)
-    EST(n+1) = EST(n) + KG*(noisy_signal(n) - EST(n));
+
+for n = 1:size(noisy_signal, 2)-1
+    EST(n+1) = EST(n);
+    E_est = E_est + 0.01;
+    EST(n+1) = EST(n+1) + KG*(noisy_signal(n+1) - EST(n+1));
     E_est = (1 - KG)*E_est;
     KG = (E_est)/(E_est + E_mea);
     disp("E_est: "+ num2str(E_est));
