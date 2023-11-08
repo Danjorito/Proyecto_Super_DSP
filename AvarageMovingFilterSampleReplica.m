@@ -73,7 +73,7 @@ hold off;
 
 %Performance metrics calculation
 
-signal_vector = [noisy_signal' MA_2_asym_signal' MA_3_asym_signal' MA_3_sym_signal' MA_5_sym_signal']; %From this point onwards this order is respected for the signals inside the vectors.
+signal_vector = [noisy_signal' MA_2_asym_signal' MA_3_asym_signal' MA_3_sym_signal' MA_5_sym_signal']; %From this point onwards this order is used for the signals inside the vectors.
 
 %SM1
 
@@ -89,7 +89,7 @@ end
 SM2 = zeros(1, size(signal_vector, 2));
 SM2_percentage = zeros(1, size(signal_vector, 2));
 for n = 1:size(signal_vector, 2)
-    dif = signal_vector(1:size(signal_vector(:, n), 1)-2, n) - 2.*signal_vector(2:size(signal_vector(:, n)-1, 1), n) + signal_vector(3:size(signal_vector(:, n), 1), n);
+    dif = signal_vector(1:size(signal_vector(:, n), 1)-2, n) - 2.*signal_vector(2:size(signal_vector(:, n), 1)-1, n) + signal_vector(3:size(signal_vector(:, n), 1), n);
     SM2(n) = sum((dif).^(2));
     SM2_percentage(n) = 100*(SM2(1)-SM2(n))/(SM2(1));
 end
