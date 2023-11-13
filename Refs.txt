@@ -1,0 +1,9 @@
+for MA:
+- https://la.mathworks.com/help/matlab/ref/filter.html
+
+for B-Splines:
+- https://la.mathworks.com/help/curvefit/spap2.html
+- https://la.mathworks.com/help/curvefit/fn2fm.html
+- https://la.mathworks.com/help/curvefit/construct-and-work-with-the-ppform.html
+
+for Kalman filter: (LOOK FOR WEBPAGE THAT SAVED MY LIFE)

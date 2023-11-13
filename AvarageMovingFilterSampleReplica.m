@@ -46,7 +46,7 @@ hold on;
 plot(MA_3_asym_signal);
 plot(original, 'LineWidth', 1.2);
 legend("MA filtered signal", "Original signal");
-title("a) WS=3, WT='asym'");
+title("b) WS=3, WT='asym'");
 xlabel("Samples");
 ylabel("Magnitude");
 hold off;
@@ -56,7 +56,7 @@ hold on;
 plot(MA_3_sym_signal);
 plot(original, 'LineWidth', 1.2);
 legend("MA filtered signal", "Original signal");
-title("a) WS=3, WT='sym'");
+title("c) WS=3, WT='sym'");
 xlabel("Samples");
 ylabel("Magnitude");
 hold off;
@@ -66,7 +66,7 @@ hold on;
 plot(MA_5_sym_signal);
 plot(original, 'LineWidth', 1.2);
 legend("MA filtered signal", "Original signal");
-title("a) WS=5, WT='sym'");
+title("d) WS=5, WT='sym'");
 xlabel("Samples");
 ylabel("Magnitude");
 hold off;
@@ -76,7 +76,6 @@ hold off;
 signal_vector = [noisy_signal' MA_2_asym_signal' MA_3_asym_signal' MA_3_sym_signal' MA_5_sym_signal']; %From this point onwards this order is used for the signals inside the vectors.
 
 %SM1
-
 SM1 = zeros(1, size(signal_vector, 2));
 SM1_percentage = zeros(1, size(signal_vector, 2));
 for n = 1:size(signal_vector, 2)
