@@ -78,6 +78,7 @@ signal_vector = [noisy_signal' MA_2_asym_signal' MA_3_asym_signal' MA_3_sym_sign
 %SM1
 SM1 = zeros(1, size(signal_vector, 2));
 SM1_percentage = zeros(1, size(signal_vector, 2));
+
 for n = 1:size(signal_vector, 2)
     dif = signal_vector(2:size(signal_vector(:, n), 1), n) - signal_vector(1:size(signal_vector(:, n), 1)-1, n);
     SM1(n) = sum(abs(dif));
