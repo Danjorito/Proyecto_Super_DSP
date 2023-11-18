@@ -2,8 +2,8 @@
 
 To do list:
 - Replication
-    * Moving Avarage, WIP (Sine version done)
-    * B-Spline,       WIP (Sine version done)
-    * Kalman Filter,  WIP (Sine version done)
+    * Moving Avarage, Done (Check for missing thing and mistakes)
+    * B-Spline,       Done (Check for missing thing and mistakes)
+    * Kalman Filter,  Done (Check for missing thing and mistakes)
 - Inovation
-    * Wavelet,        PENDING
+    * Wavelet,        WIP (Missing MOCAP part)

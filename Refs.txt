@@ -7,3 +7,6 @@ for B-Splines:
 - https://la.mathworks.com/help/curvefit/construct-and-work-with-the-ppform.html
 
 for Kalman filter: (LOOK FOR WEBPAGE THAT SAVED MY LIFE)
+
+for MOCAP dataset and conversion:
+- http://mocap.cs.cmu.edu

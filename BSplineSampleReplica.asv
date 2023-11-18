@@ -121,7 +121,6 @@ spline_app_598ctrl_ch1 = spap2(598, 3, t, ch1);
 spline_app_200ctrl_ch1 = spap2(200, 3, t, ch1);
 spline_app_100ctrl_ch1 = spap2(100, 3, t, ch1);
 spline_app_50ctrl_ch1 = spap2(50, 3, t, ch1);
-spline_app_25ctrl_ch1 = spap2(25, 3, t, ch1);
 
 fn_form_598ctrl_ch1 = fnval(fn2fm(spline_app_598ctrl_ch1, 'ppform'), t);
 fn_form_200ctrl_ch1 = fnval(fn2fm(spline_app_200ctrl_ch1, 'ppform'), t);
@@ -142,6 +141,16 @@ hold off;
 
 subplot(2, 2, 2);
 hold on;
+plot(fn_form_200ctrl_ch1, 'LineWidth', 1.2);
+plot(ch1, "k");
+legend("Spline approximated signal", "Original signal");
+title("b) p=3; No.CP=200");
+xlabel("Samples");
+ylabel("Magnitude");
+hold off;
+
+subplot(2, 2, 3);
+hold on;
 plot(fn_form_100ctrl_ch1, 'LineWidth', 1.2);
 plot(ch1, "k");
 legend("Spline approximated signal", "Original signal");
@@ -150,7 +159,7 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 3);
+subplot(2, 2, 4);
 hold on;
 plot(fn_form_50ctrl_ch1, 'LineWidth', 1.2);
 plot(ch1, "k");
@@ -160,19 +169,9 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 4);
-hold on;
-plot(fn_form_25ctrl_ch1, 'LineWidth', 1.2);
-plot(ch1, "k");
-legend("Spline approximated signal", "Original signal");
-title("b) p=3; No.CP=25");
-xlabel("Samples");
-ylabel("Magnitude");
-hold off;
-
 %Performance metrics calculation
 
-signal_vector = [ch1' fn_form_598ctrl_ch1' fn_form_200ctrl_ch1' fn_form_100ctrl_ch1' fn_form_50ctrl_ch1' fn_form_25ctrl_ch1']; %From this point onwards this order is used for the signals inside the vectors.
+signal_vector = [ch1' fn_form_598ctrl_ch1' fn_form_200ctrl_ch1' fn_form_100ctrl_ch1' fn_form_50ctrl_ch1']; %From this point onwards this order is used for the signals inside the vectors.
 
 %SM1
 SM1_ch1 = zeros(1, size(signal_vector, 2));
@@ -199,13 +198,11 @@ spline_app_598ctrl_ch3 = spap2(598, 3, t, ch3);
 spline_app_200ctrl_ch3 = spap2(200, 3, t, ch3);
 spline_app_100ctrl_ch3 = spap2(100, 3, t, ch3);
 spline_app_50ctrl_ch3 = spap2(50, 3, t, ch3);
-spline_app_25ctrl_ch3 = spap2(25, 3, t, ch3);
 
 fn_form_598ctrl_ch3 = fnval(fn2fm(spline_app_598ctrl_ch3, 'ppform'), t);
 fn_form_200ctrl_ch3 = fnval(fn2fm(spline_app_200ctrl_ch3, 'ppform'), t);
 fn_form_100ctrl_ch3 = fnval(fn2fm(spline_app_100ctrl_ch3, 'ppform'), t);
 fn_form_50ctrl_ch3 = fnval(fn2fm(spline_app_50ctrl_ch3, 'ppform'), t);
-fn_form_25ctrl_ch3 = fnval(fn2fm(spline_app_25ctrl_ch3, 'ppform'), t);
 
 figure(2)
 subplot(2, 2, 1);
@@ -220,6 +217,16 @@ hold off;
 
 subplot(2, 2, 2);
 hold on;
+plot(fn_form_200ctrl_ch3, 'LineWidth', 1.2);
+plot(ch3, "k");
+legend("Spline approximated signal", "Original signal");
+title("b) p=3; No.CP=200");
+xlabel("Samples");
+ylabel("Magnitude");
+hold off;
+
+subplot(2, 2, 3);
+hold on;
 plot(fn_form_100ctrl_ch3, 'LineWidth', 1.2);
 plot(ch3, "k");
 legend("Spline approximated signal", "Original signal");
@@ -228,7 +235,7 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 3);
+subplot(2, 2, 4);
 hold on;
 plot(fn_form_50ctrl_ch3, 'LineWidth', 1.2);
 plot(ch3, "k");
@@ -238,19 +245,9 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 4);
-hold on;
-plot(fn_form_25ctrl_ch3, 'LineWidth', 1.2);
-plot(ch3, "k");
-legend("Spline approximated signal", "Original signal");
-title("b) p=3; No.CP=25");
-xlabel("Samples");
-ylabel("Magnitude");
-hold off;
-
 %Performance metrics calculation
 
-signal_vector = [ch3' fn_form_598ctrl_ch3' fn_form_200ctrl_ch3' fn_form_100ctrl_ch3' fn_form_50ctrl_ch3' fn_form_25ctrl_ch3']; %From this point onwards this order is used for the signals inside the vectors.
+signal_vector = [ch3' fn_form_598ctrl_ch3' fn_form_200ctrl_ch3' fn_form_100ctrl_ch3' fn_form_50ctrl_ch3']; %From this point onwards this order is used for the signals inside the vectors.
 
 %SM1
 SM1_ch3 = zeros(1, size(signal_vector, 2));
@@ -269,3 +266,5 @@ for n = 1:size(signal_vector, 2)
     SM2_ch3(n) = sum((dif_ch3).^(2));
     SM2_percentage_ch3(n) = 100*(SM2_ch3(1)-SM2_ch3(n))/(SM2_ch3(1));
 end
+
+
