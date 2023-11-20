@@ -56,20 +56,19 @@ for n = 1:size(noisy_signal, 2)-1
 end
 
 figure(2)
-subplot(2, 1, 1)
 hold on;
 plot(EST_1);
 plot(original, 'LineWidth', 1.2);
 legend("Noisy sine wave with Kalman filter applied", "Original signal");
-title("a) Emea = 0.01");
+title("a) R = 0.01, Q = 0.0003");
 hold off;
 
-subplot(2, 1, 2)
+figure(3)
 hold on;
 plot(EST_2);
 plot(original, 'LineWidth', 1.2);
 legend("Noisy sine wave with  Kalman filter applied", "Original signal");
-title("a) Emea = 0.02");
+title("a) R = 0.02, Q = 0.0001");
 hold off;
 
 %Performance metrics calculation
@@ -200,21 +199,21 @@ hold off;
 signal_vector = [ch1' EST_3_ch1' EST_1_ch1' EST_2_ch1']; %From this point onwards this order is used for the signals inside the vectors.
 
 %SM1
-SM1 = zeros(1, size(signal_vector, 2));
-SM1_percentage = zeros(1, size(signal_vector, 2));
+SM1_ch1 = zeros(1, size(signal_vector, 2));
+SM1_percentage_ch1 = zeros(1, size(signal_vector, 2));
 for n = 1:size(signal_vector, 2)
     dif = signal_vector(2:size(signal_vector(:, n), 1), n) - signal_vector(1:size(signal_vector(:, n), 1)-1, n);
-    SM1(n) = sum(abs(dif));
-    SM1_percentage(n) = 100*(SM1(1)-SM1(n))/(SM1(1));
+    SM1_ch1(n) = sum(abs(dif));
+    SM1_percentage_ch1(n) = 100*(SM1_ch1(1)-SM1_ch1(n))/(SM1_ch1(1));
 end
 
 %SM2
-SM2 = zeros(1, size(signal_vector, 2));
-SM2_percentage = zeros(1, size(signal_vector, 2));
+SM2_ch1 = zeros(1, size(signal_vector, 2));
+SM2_percentage_ch1 = zeros(1, size(signal_vector, 2));
 for n = 1:size(signal_vector, 2)
     dif = signal_vector(1:size(signal_vector(:, n), 1)-2, n) - 2.*signal_vector(2:size(signal_vector(:, n), 1)-1, n) + signal_vector(3:size(signal_vector(:, n), 1), n);
-    SM2(n) = sum((dif).^(2));
-    SM2_percentage(n) = 100*(SM2(1)-SM2(n))/(SM2(1));
+    SM2_ch1(n) = sum((dif).^(2));
+    SM2_percentage_ch1(n) = 100*(SM2_ch1(1)-SM2_ch1(n))/(SM2_ch1(1));
 end
 
 
@@ -303,19 +302,19 @@ hold off;
 signal_vector = [ch3' EST_3_ch3' EST_1_ch3' EST_2_ch3']; %From this point onwards this order is used for the signals inside the vectors.
 
 %SM1
-SM1 = zeros(1, size(signal_vector, 2));
-SM1_percentage = zeros(1, size(signal_vector, 2));
+SM1_ch3 = zeros(1, size(signal_vector, 2));
+SM1_percentage_ch3 = zeros(1, size(signal_vector, 2));
 for n = 1:size(signal_vector, 2)
     dif = signal_vector(2:size(signal_vector(:, n), 1), n) - signal_vector(1:size(signal_vector(:, n), 1)-1, n);
-    SM1(n) = sum(abs(dif));
-    SM1_percentage(n) = 100*(SM1(1)-SM1(n))/(SM1(1));
+    SM1_ch3(n) = sum(abs(dif));
+    SM1_percentage_ch3(n) = 100*(SM1_ch3(1)-SM1_ch3(n))/(SM1_ch3(1));
 end
 
 %SM2
-SM2 = zeros(1, size(signal_vector, 2));
-SM2_percentage = zeros(1, size(signal_vector, 2));
+SM2_ch3 = zeros(1, size(signal_vector, 2));
+SM2_percentage_ch3 = zeros(1, size(signal_vector, 2));
 for n = 1:size(signal_vector, 2)
     dif = signal_vector(1:size(signal_vector(:, n), 1)-2, n) - 2.*signal_vector(2:size(signal_vector(:, n), 1)-1, n) + signal_vector(3:size(signal_vector(:, n), 1), n);
-    SM2(n) = sum((dif).^(2));
-    SM2_percentage(n) = 100*(SM2(1)-SM2(n))/(SM2(1));
+    SM2_ch3(n) = sum((dif).^(2));
+    SM2_percentage_ch3(n) = 100*(SM2_ch3(1)-SM2_ch3(n))/(SM2_ch3(1));
 end

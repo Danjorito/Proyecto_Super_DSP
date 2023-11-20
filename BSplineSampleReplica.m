@@ -32,7 +32,6 @@ fn_form_100ctrl = fnval(fn2fm(spline_app_100ctrl, 'ppform'), t);
 fn_form_50ctrl = fnval(fn2fm(spline_app_50ctrl, 'ppform'), t);
 
 figure(2)
-subplot(2, 2, 1);
 hold on;
 plot(fn_form_500ctrl);
 plot(original, 'LineWidth', 1.2);
@@ -42,7 +41,7 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 2);
+figure(3)
 hold on;
 plot(fn_form_200ctrl);
 plot(original, 'LineWidth', 1.2);
@@ -52,7 +51,7 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 3);
+figure(4)
 hold on;
 plot(fn_form_100ctrl);
 plot(original, 'LineWidth', 1.2);
@@ -62,7 +61,7 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 4);
+figure(5)
 hold on;
 plot(fn_form_50ctrl);
 plot(original, 'LineWidth', 1.2);

@@ -18,6 +18,8 @@ hold on;
 plot(noisy_signal);
 plot(original, 'LineWidth', 1.2);
 legend("Sine wave with white Gaussian noise added", "Original signal");
+xlabel("Samples");
+ylabel("Magnitude");
 hold off;
 
 %MA WS=3, WT='sym'
@@ -34,7 +36,6 @@ MA_3_asym_signal = movmean(noisy_signal, [2 0]); %[2 0] means use two elements f
 
 %Filtered noisy signal plots
 figure(2)
-subplot(2, 2, 1);
 hold on;
 plot(MA_2_asym_signal);
 plot(original, 'LineWidth', 1.2);
@@ -44,7 +45,7 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 2);
+figure(3)
 hold on;
 plot(MA_3_asym_signal);
 plot(original, 'LineWidth', 1.2);
@@ -54,7 +55,7 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 3);
+figure(4)
 hold on;
 plot(MA_3_sym_signal);
 plot(original, 'LineWidth', 1.2);
@@ -64,7 +65,7 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 4);
+figure(5)
 hold on;
 plot(MA_5_sym_signal);
 plot(original, 'LineWidth', 1.2);
@@ -115,6 +116,19 @@ ch1 = Mocap(:, 2); %Called channel 1 in the original paper
 ch1 = 6*(ch1-17.5)+86; %Replicating scaling and offset applied in the original paper
 ch3 = Mocap(:, 6); %Called channel 3 in the original paper
 
+%Figures of the extracted signals
+figure(1)
+plot(ch1);
+title("Low frequency");
+xlabel("Samples");
+ylabel("Magnitude");
+
+figure(2)
+plot(ch3);
+title("Low+High frequency");
+xlabel("Samples");
+ylabel("Magnitude");
+
 
 %ch1 MA signal filtering
 
@@ -133,8 +147,7 @@ MA_3_asym_ch1 = movmean(ch1, [2 0]); %[2 0] means use two elements from the past
 
 %Plots for filtered signals on ch1
 
-figure(1)
-subplot(2, 2, 1);
+figure(3)
 hold on;
 plot(MA_2_asym_ch1, LineWidth=1.5);
 plot(ch1, "k");
@@ -144,7 +157,7 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 2);
+figure(4)
 hold on;
 plot(MA_3_asym_ch1, LineWidth=1.5);
 plot(ch1, "k");
@@ -154,7 +167,7 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 3);
+figure(5)
 hold on;
 plot(MA_3_sym_ch1, LineWidth=1.5);
 plot(ch1, "k");
@@ -164,7 +177,7 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 4);
+figure(6)
 hold on;
 plot(MA_5_sym_ch1, LineWidth=1.5);
 plot(ch1, "k");
@@ -215,8 +228,7 @@ MA_3_asym_ch3 = movmean(ch3, [2 0]); %[2 0] means use two elements from the past
 
 %Plots for filtered signals on ch3
 
-figure(2)
-subplot(2, 2, 1);
+figure(7)
 hold on;
 plot(MA_2_asym_ch3, LineWidth=1.5);
 plot(ch3, "k");
@@ -226,7 +238,7 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 2);
+figure(8)
 hold on;
 plot(MA_3_asym_ch3, LineWidth=1.5);
 plot(ch3, "k");
@@ -236,7 +248,7 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 3);
+figure(9)
 hold on;
 plot(MA_3_sym_ch3, LineWidth=1.5);
 plot(ch3, "k");
@@ -246,7 +258,7 @@ xlabel("Samples");
 ylabel("Magnitude");
 hold off;
 
-subplot(2, 2, 4);
+figure(10)
 hold on;
 plot(MA_5_sym_ch3, LineWidth=1.5);
 plot(ch3, "k");

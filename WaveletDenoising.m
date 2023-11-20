@@ -22,7 +22,7 @@ hold off;
 
 wavelets = ["haar", "db4", "db12", "sym2", "sym4", "sym8", "bl7", "bl10"];
 
-denoised = zeros(8, 4, 1000);
+denoised = zeros(length(wavelets), 4, 1000);
 
 for n = 1:size(denoised, 2) %This represents the levels of decomposition used on the denoising process
     for k = 1:size(denoised, 1)
@@ -31,9 +31,8 @@ for n = 1:size(denoised, 2) %This represents the levels of decomposition used on
 end
 
 figure(2)
-
 hold on;
-plot(squeeze(denoised(1, 1, :)));
+plot(squeeze(denoised(8, 4, :)));
 plot(original, 'LineWidth', 1.2);
 legend("Sine wave with white Gaussian noise added", "Original signal");
 hold off;
