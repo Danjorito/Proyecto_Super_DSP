@@ -117,12 +117,30 @@ for n = 1:size(denoised_ch1, 2) %This represents the levels of decomposition use
     end
 end
 
+%This part of the code can be used to plot different results for different
+%wavelets and different levels of decomposition (ch1)
 figure(3)
+hold on;
+plot(squeeze(denoised_ch1(4, 4, :)));
+plot(ch1, 'LineWidth', 1.2);
+title("denoised v/s original signal");
+xlabel("Samples");
+ylabel("Magnitude");
+legend("Signal denoised", "Original signal");
+hold off;
+
+%This part of the code can be used to plot different results for different
+%wavelets and different levels of decomposition (ch3)
+figure(4)
 hold on;
 plot(squeeze(denoised_ch3(3, 4, :)));
 plot(ch3, 'LineWidth', 1.2);
-legend("Sine wave with white Gaussian noise added", "Original signal");
+title("denoised v/s original signal");
+xlabel("Samples");
+ylabel("Magnitude");
+legend("Signal denoised", "Original signal");
 hold off;
+
 
 %ch1
 
